@@ -233,7 +233,7 @@ export default function App() {
           href="https://www.loadofpixels.com" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="font-bold text-zinc-800 hover:text-cyan-300 transition-colors"
+          className="font-bold text-white hover:text--300 transition-colors"
         >
           Load of Pixels
         </a>
