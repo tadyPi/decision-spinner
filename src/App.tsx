@@ -226,6 +226,19 @@ export default function App() {
         </div>
       )}
 
+      {/* Footer Credit */}
+      <div className="mt-8 text-center text-gray-500 text-sm">
+        Design and development by{' '}
+        <a 
+          href="https://www.loadofpixels.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+        >
+          Load of Pixels
+        </a>
+      </div>
+
       <style>{`
         @keyframes fade-in {
           from { opacity: 0; transform: translateY(-10px); }
