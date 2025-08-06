@@ -18,12 +18,12 @@ const loadOptionsFromStorage = () => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      return Array.isArray(parsed) && parsed.length > 0 ? parsed : ['Pizza', 'Tacos', 'Sushi', 'Pasta', 'Burger', 'Salad', 'Ramen', 'Steak'];
+      return Array.isArray(parsed) ? parsed : [];
     }
   } catch (error) {
     console.warn('Failed to load options from localStorage:', error);
   }
-  return ['Pizza', 'Tacos', 'Sushi', 'Pasta', 'Burger', 'Salad', 'Ramen', 'Steak'];
+  return [];
 };
 
 const saveOptionsToStorage = (options) => {
