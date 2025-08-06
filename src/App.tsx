@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronsRight, X } from 'lucide-react';
+import { ChevronsRight, X, Trash2 } from 'lucide-react';
 
 // A color palette for the spinner segments.
 const COLORS = [
@@ -10,10 +10,33 @@ const COLORS = [
 // Helper function to get a color for a segment
 const getColor = (index) => COLORS[index % COLORS.length];
 
+// Helper functions for localStorage
+const STORAGE_KEY = 'decision-spinner-options';
+
+const loadOptionsFromStorage = () => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed) && parsed.length > 0 ? parsed : ['Pizza', 'Tacos', 'Sushi', 'Pasta', 'Burger', 'Salad', 'Ramen', 'Steak'];
+    }
+  } catch (error) {
+    console.warn('Failed to load options from localStorage:', error);
+  }
+  return ['Pizza', 'Tacos', 'Sushi', 'Pasta', 'Burger', 'Salad', 'Ramen', 'Steak'];
+};
+
+const saveOptionsToStorage = (options) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(options));
+  } catch (error) {
+    console.warn('Failed to save options to localStorage:', error);
+  }
+};
 // Main App Component
 export default function App() {
   // State for the list of options
-  const [options, setOptions] = useState(['Pizza', 'Tacos', 'Sushi', 'Pasta', 'Burger', 'Salad', 'Ramen', 'Steak']);
+  const [options, setOptions] = useState(loadOptionsFromStorage);
   // State for the new option input field
   const [newOption, setNewOption] = useState('');
   // State to control the spinning animation
@@ -22,6 +45,11 @@ export default function App() {
   const [rotation, setRotation] = useState(0);
   // State to store the winning result
   const [result, setResult] = useState(null);
+
+  // Save options to localStorage whenever options change
+  useEffect(() => {
+    saveOptionsToStorage(options);
+  }, [options]);
 
   // Calculate the angle for each segment of the wheel
   const segmentAngle = 360 / (options.length > 0 ? options.length : 1);
@@ -40,6 +68,11 @@ export default function App() {
     setOptions(options.filter((_, index) => index !== indexToRemove));
   };
 
+  // Function to clear all options
+  const handleClearAll = () => {
+    setOptions([]);
+    setResult(null);
+  };
   // Function to handle the spin
   const handleSpin = () => {
     if (options.length < 2 || isSpinning) return;
@@ -83,7 +116,19 @@ export default function App() {
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start flex-1">
         {/* Options Panel */}
         <div className="w-full bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-700 md:order-1 h-fit">
-          <h2 className="text-2xl font-bold mb-4 text-cyan-400">Options</h2>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-bold text-cyan-400">Options</h2>
+            {options.length > 0 && (
+              <button
+                onClick={handleClearAll}
+                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-md text-sm font-semibold transition-colors"
+                title="Clear all options"
+              >
+                <Trash2 size={16} />
+                Clear All
+              </button>
+            )}
+          </div>
           <form onSubmit={handleAddOption} className="flex gap-2 mb-4">
             <input
               type="text"
