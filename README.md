@@ -39,16 +39,9 @@ When you build something your loved ones actually use daily, that's when you kno
 - **Smooth Animations**: Satisfying spin animations with realistic physics
 - **Easy Management**: Add, remove, and clear options with simple controls
 
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
-4. Build for production: `npm run build`
-
 ## Live Demo
 
-Visit the live app at [your-netlify-url-here]
+Visit the live app at https://random-decision.netlify.app/
 
 ---
 
