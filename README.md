@@ -28,7 +28,8 @@ The best part? Going from idea to live app took just a few hours thanks to moder
 
 When you build something your loved ones actually use daily, that's when you know you've created something worthwhile. 💙
 
-<img width="414" height="786" alt="Screenshot 2025-08-06 142247" src="https://github.com/user-attachments/assets/2d238915-c585-4518-ac43-5bb7c867bb5b" />
+<img width="415" height="717" alt="Screenshot 2025-08-07 142556" src="https://github.com/user-attachments/assets/2f3520b6-6661-4fe7-9968-1bf1f4f2eba2" />
+
 
 
 ## Features
