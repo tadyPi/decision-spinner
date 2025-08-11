@@ -256,6 +256,5 @@ export default function App() {
       `}</style>
       </div>
     </div>
-    </div>
   );
 }
