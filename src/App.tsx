@@ -147,7 +147,7 @@ export default function App() {
               Add
             </button>
           </form>
-          <ul className="space-y-2 max-h-60 overflow-y-auto pr-2">
+          <ul className="space-y-2">
             {options.map((option, index) => (
                 <li key={index} className="flex justify-between items-center bg-gray-50 dark:bg-gray-700 p-2 rounded-md animate-fade-in">
                 <span className="truncate">{option}</span>
