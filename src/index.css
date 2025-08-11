@@ -2,13 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force vertical scrollbar to always be visible to prevent layout shifts */
-html {
-  overflow-y: scroll;
+/* Prevent horizontal overflow at document level */
+html, body {
   overflow-x: hidden;
 }
 
-body {
+/* Container-level scrollbar management */
+.main-container {
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
