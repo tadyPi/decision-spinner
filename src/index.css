@@ -5,6 +5,11 @@
 /* Force vertical scrollbar to always be visible to prevent layout shifts */
 html {
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 @keyframes fade-in {
