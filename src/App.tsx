@@ -111,7 +111,7 @@ export default function App() {
 
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''}`}>
-      <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen w-full flex flex-col items-center justify-center p-2 sm:p-4 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden transition-colors duration-300">
+      <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen w-full flex flex-col items-center justify-center p-2 sm:p-4 font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-300">
         <ThemeToggle />
         
       <div className="text-center mb-8">
