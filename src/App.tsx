@@ -254,7 +254,6 @@ export default function App() {
           animation: fade-in 0.3s ease-out forwards;
         }
       `}</style>
-      </div>
     </div>
   );
 }
