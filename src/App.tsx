@@ -121,7 +121,7 @@ export default function App() {
 
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start flex-1 px-2 sm:px-4">
         {/* Options Panel */}
-          <div className="w-full bg-white/80 mt-8 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 md:order-1 h-fit">
+          <div className="w-full bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 md:order-1 h-fit">
           <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">Options</h2>
             {options.length > 0 && (
