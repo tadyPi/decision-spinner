@@ -115,13 +115,13 @@ export default function App() {
         <ThemeToggle />
         
       <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Decision Spinner</h1>
+          <h1 className="text-4xl mt-8 md:text-5xl font-bold text-gray-900 dark:text-white">Decision Spinner</h1>
           <p className="text-gray-600 dark:text-gray-400 mt-2">Add your options and let fate decide!</p>
       </div>
 
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start flex-1 px-2 sm:px-4">
         {/* Options Panel */}
-          <div className="w-full bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 md:order-1 h-fit">
+          <div className="w-full bg-white/80 mt-8 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 md:order-1 h-fit">
           <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">Options</h2>
             {options.length > 0 && (
