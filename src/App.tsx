@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronsRight, X, Trash2 } from 'lucide-react';
+import { useTheme } from './contexts/ThemeContext';
+import { ThemeToggle } from './components/ThemeToggle';
 
 // A color palette for the spinner segments.
 const COLORS = [
@@ -35,6 +37,7 @@ const saveOptionsToStorage = (options) => {
 };
 // Main App Component
 export default function App() {
+  const { theme } = useTheme();
   // State for the list of options
   const [options, setOptions] = useState(loadOptionsFromStorage);
   // State for the new option input field
@@ -107,17 +110,20 @@ export default function App() {
 
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen w-full flex flex-col items-center justify-center p-2 sm:p-4 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden">
+    <div className={`${theme === 'dark' ? 'dark' : ''}`}>
+      <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen w-full flex flex-col items-center justify-center p-2 sm:p-4 font-sans selection:bg-cyan-500 selection:text-white overflow-x-hidden transition-colors duration-300">
+        <ThemeToggle />
+        
       <div className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-white">Decision Spinner</h1>
-        <p className="text-gray-400 mt-2">Add your options and let fate decide!</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Decision Spinner</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">Add your options and let fate decide!</p>
       </div>
 
       <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start flex-1">
         {/* Options Panel */}
-        <div className="w-full bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-700 md:order-1 h-fit">
+          <div className="w-full bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 md:order-1 h-fit">
           <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-bold text-cyan-400">Options</h2>
+              <h2 className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">Options</h2>
             {options.length > 0 && (
               <button
                 onClick={handleClearAll}
@@ -135,22 +141,22 @@ export default function App() {
               value={newOption}
               onChange={(e) => setNewOption(e.target.value)}
               placeholder="Add an option..."
-              className="flex-grow bg-gray-700 text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition"
+                className="flex-grow bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition border border-gray-300 dark:border-gray-600"
             />
-            <button type="submit" className="bg-cyan-600 hover:bg-cyan-700 rounded-md px-4 py-2 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled={!newOption.trim()}>
+              <button type="submit" className="bg-cyan-600 hover:bg-cyan-700 text-white rounded-md px-4 py-2 font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed" disabled={!newOption.trim()}>
               Add
             </button>
           </form>
           <ul className="space-y-2 max-h-60 overflow-y-auto pr-2">
             {options.map((option, index) => (
-              <li key={index} className="flex justify-between items-center bg-gray-700 p-2 rounded-md animate-fade-in">
+                <li key={index} className="flex justify-between items-center bg-gray-50 dark:bg-gray-700 p-2 rounded-md animate-fade-in">
                 <span className="truncate">{option}</span>
                 <button onClick={() => handleRemoveOption(index)} className="text-red-500 hover:text-red-400 transition-colors p-1 rounded-full">
                   <X size={18} />
                 </button>
               </li>
             ))}
-             {options.length === 0 && <p className="text-gray-500 text-center py-4">Add some options to get started!</p>}
+             {options.length === 0 && <p className="text-gray-500 dark:text-gray-500 text-center py-4">Add some options to get started!</p>}
           </ul>
         </div>
 
@@ -159,14 +165,14 @@ export default function App() {
           <div className="relative w-full max-w-sm aspect-square mx-auto">
             {/* Pointer */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-3 z-20" style={{ filter: 'drop-shadow(0 2px 3px rgba(0,0,0,0.5))' }}>
-               <ChevronsRight size={48} className="text-white rotate-90" />
+               <ChevronsRight size={48} className="text-gray-800 dark:text-white rotate-90" />
             </div>
             
             {/* Spinner Wheel Container */}
             <div className="w-full h-full relative">
                 {/* Spinner Wheel Background */}
                 <div
-                  className="w-full h-full rounded-full border-8 border-gray-700/50 shadow-2xl overflow-hidden transition-transform duration-[5000ms] ease-out"
+                  className="w-full h-full rounded-full border-8 border-gray-300/50 dark:border-gray-700/50 shadow-2xl overflow-hidden transition-transform duration-[5000ms] ease-out"
                   style={{ 
                     transform: `rotate(${rotation}deg)`,
                     background: wheelBackground
@@ -215,11 +221,11 @@ export default function App() {
       
       {/* Result Modal */}
       {result && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 animate-fade-in">
-          <div className="bg-gray-800 p-6 sm:p-8 rounded-2xl text-center shadow-2xl border border-gray-700 max-w-sm mx-4">
-            <h3 className="text-lg text-gray-400">The winner is...</h3>
-            <p className="text-4xl md:text-5xl font-bold text-cyan-400 my-4 break-words">{result}</p>
-            <button onClick={() => setResult(null)} className="mt-6 bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-md font-semibold transition-colors">
+          <div className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 animate-fade-in">
+            <div className="bg-white dark:bg-gray-800 p-6 sm:p-8 rounded-2xl text-center shadow-2xl border border-gray-200 dark:border-gray-700 max-w-sm mx-4">
+              <h3 className="text-lg text-gray-600 dark:text-gray-400">The winner is...</h3>
+              <p className="text-4xl md:text-5xl font-bold text-cyan-600 dark:text-cyan-400 my-4 break-words">{result}</p>
+              <button onClick={() => setResult(null)} className="mt-6 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-700 text-gray-900 dark:text-white px-6 py-2 rounded-md font-semibold transition-colors">
               Close
             </button>
           </div>
@@ -227,13 +233,13 @@ export default function App() {
       )}
 
       {/* Footer Credit */}
-      <div className="mt-8 text-center text-gray-500 text-sm">
+        <div className="mt-8 text-center text-gray-500 dark:text-gray-500 text-sm">
         Design and development by{' '}
         <a 
           href="https://www.loadofpixels.com" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="font-bold text-white hover:text-cyan-300 hover:underline transition-colors"
+            className="font-bold text-gray-900 dark:text-white hover:text-cyan-600 dark:hover:text-cyan-300 hover:underline transition-colors"
         >
           Load of Pixels
         </a>
@@ -248,6 +254,8 @@ export default function App() {
           animation: fade-in 0.3s ease-out forwards;
         }
       `}</style>
+      </div>
+    </div>
     </div>
   );
 }
