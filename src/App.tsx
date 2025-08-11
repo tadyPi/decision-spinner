@@ -169,7 +169,7 @@ export default function App() {
             </div>
             
             {/* Spinner Wheel Container */}
-            <div className="w-full h-full relative">
+            <div className="w-full h-full relative p-2">
                 {/* Spinner Wheel Background */}
                 <div
                   className="w-full h-full rounded-full border-8 border-gray-300/50 dark:border-gray-700/50 shadow-2xl overflow-hidden transition-transform duration-[5000ms] ease-out"
