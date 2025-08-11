@@ -111,7 +111,7 @@ export default function App() {
 
   return (
     <div className={`${theme === 'dark' ? 'dark' : ''}`}>
-      <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen w-full flex flex-col items-center justify-center p-2 sm:p-4 font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+      <div className="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white min-h-screen w-full flex flex-col items-center justify-center font-sans selection:bg-cyan-500 selection:text-white transition-colors duration-300">
         <ThemeToggle />
         
       <div className="text-center mb-8">
@@ -119,7 +119,7 @@ export default function App() {
           <p className="text-gray-600 dark:text-gray-400 mt-2">Add your options and let fate decide!</p>
       </div>
 
-      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start flex-1">
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-start flex-1 px-2 sm:px-4">
         {/* Options Panel */}
           <div className="w-full bg-white/80 dark:bg-gray-800/50 backdrop-blur-sm p-4 sm:p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 md:order-1 h-fit">
           <div className="flex justify-between items-center mb-4">
