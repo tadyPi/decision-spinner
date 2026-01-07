@@ -3,9 +3,7 @@
 🎯 **Built a Clean Decision Spinner for My Partner (No Ads, Just Decisions!)**
 
 My partner was frustrated with online decision wheels cluttered with ads and distractions, so I built a clean, focused alternative - the Decision Spinner! 
-<img width="1894" height="847" alt="Screenshot 2025-08-06 162445" src="https://github.com/user-attachments/assets/8aa564b9-1f76-4b74-b2c4-af1ee2262f50" />
-
-
+<img width="1812" height="847" alt="marketing-lightMode-app" src="https://github.com/user-attachments/assets/218da797-6b61-41ad-a0f5-917c6fadc079" />
 
 ✨ **What makes it special:**
 • Clean, distraction-free interface
@@ -27,9 +25,6 @@ My partner was frustrated with online decision wheels cluttered with ads and dis
 The best part? Going from idea to live app took just a few hours thanks to modern tooling. Sometimes the simplest solutions are the most satisfying! 
 
 When you build something your loved ones actually use daily, that's when you know you've created something worthwhile. 💙
-
-<img width="415" height="717" alt="Screenshot 2025-08-07 142556" src="https://github.com/user-attachments/assets/2f3520b6-6661-4fe7-9968-1bf1f4f2eba2" />
-
 
 
 ## Features
